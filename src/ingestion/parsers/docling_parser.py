@@ -36,7 +36,7 @@ class DoclingParser:
 
     Handles PDF, DOCX, PPTX, HTML with table extraction to Markdown.
     Preserves document structure (headings, tables, lists) far better
-    than the standard pymupdf/python-docx parsers.
+    than the standard pypdf/python-docx parsers.
     """
 
     SUPPORTED = {".pdf", ".docx", ".pptx", ".ppt", ".html", ".htm"}

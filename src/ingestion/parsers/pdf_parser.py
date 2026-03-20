@@ -1,4 +1,4 @@
-"""PDF parser using pymupdf with OCR fallback for scanned PDFs."""
+"""PDF parser using pypdf with OCR fallback for scanned PDFs."""
 
 import logging
 import unicodedata
@@ -13,41 +13,43 @@ _OCR_THRESHOLD = 50
 
 
 class PdfParser(BaseParser):
-    """Parse PDF files page-by-page using pymupdf, with Tesseract OCR fallback."""
+    """Parse PDF files page-by-page using pypdf, with Tesseract OCR fallback."""
 
     def supported_extensions(self) -> list[str]:
         return [".pdf"]
 
     def parse(self, file_path: str) -> ParseResult:
         try:
-            import fitz  # pymupdf
+            from pypdf import PdfReader
         except ImportError:
-            raise IngestionError("pymupdf not installed. Run: pip install pymupdf")
+            raise IngestionError("pypdf not installed. Run: pip install pypdf")
 
         try:
-            doc = fitz.open(file_path)
+            reader = PdfReader(file_path)
+        except FileNotFoundError:
+            raise IngestionError(f"File not found: {file_path}")
         except Exception as e:
             raise IngestionError(f"Failed to open PDF: {e}")
 
         pages_text: list[str] = []
         sections: list[Section] = []
 
-        try:
-            for page_num, page in enumerate(doc, start=1):
-                text = page.get_text("text")
-                if not text.strip():
-                    # Scanned page — flag but don't fail (may be recovered by OCR below)
-                    text = f"[Page {page_num}: image-only, no text extracted]"
-                text = unicodedata.normalize("NFC", text)
-                pages_text.append(text)
-                sections.append(Section(
-                    heading=None,
-                    body=text,
-                    level=0,
-                    page_number=page_num,
-                ))
-        finally:
-            doc.close()
+        for page_num, page in enumerate(reader.pages, start=1):
+            try:
+                text = page.extract_text() or ""
+            except Exception:
+                text = ""
+            if not text.strip():
+                # Scanned page — flag but don't fail (may be recovered by OCR below)
+                text = f"[Page {page_num}: image-only, no text extracted]"
+            text = unicodedata.normalize("NFC", text)
+            pages_text.append(text)
+            sections.append(Section(
+                heading=None,
+                body=text,
+                level=0,
+                page_number=page_num,
+            ))
 
         full_text = "\n\n".join(pages_text)
         ocr_used = False
