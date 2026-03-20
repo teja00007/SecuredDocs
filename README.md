@@ -25,7 +25,6 @@
 - [Testing](#testing)
 - [Known Limitations & Roadmap](#known-limitations--roadmap)
 - [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -186,7 +185,7 @@ Sync documents automatically from external sources:
 | **Object Storage** | MinIO (self-hosted), AWS S3, Azure Blob, GCS |
 | **Observability** | Prometheus, Grafana, OpenTelemetry (OTLP/gRPC) |
 | **Auth** | python-jose, passlib/bcrypt, PyOTP, xmlsec1 (SAML) |
-| **OCR** | Tesseract, pdf2image, PyMuPDF |
+| **OCR** | Tesseract, pdf2image, pypdf |
 | **Search** | rank-bm25, flashrank (ms-marco-MiniLM-L-12-v2) |
 | **Containers** | Docker Compose (dev), Kubernetes (prod) |
 
@@ -515,7 +514,7 @@ All connectors are implemented but require live credential testing against real 
 
 - Qdrant tests are marked `xfail` in CI; a running Qdrant instance is required for full vector store test coverage
 - SAML 2.0 requires `xmlsec1` to be installed on the host (included in Docker image, manual install needed for local dev on macOS)
-- Docling is an optional dependency — document ingestion falls back to PyMuPDF if Docling is not installed
+- Docling is an optional dependency — document ingestion falls back to pypdf if Docling is not installed
 
 ---
 
@@ -528,17 +527,6 @@ Contributions are welcome. Please open an issue to discuss significant changes b
 3. Write tests for new functionality
 4. Ensure all tests pass (`pytest`)
 5. Submit a pull request with a clear description of the change
-
----
-
-## License
-
-This project is licensed under the **PolyForm Noncommercial License 1.0.0**.
-
-- **Personal use**: Free — research, study, hobby projects, experimentation
-- **Commercial use**: Not permitted without explicit written permission from the author
-
-See [`LICENSE`](LICENSE) for full terms.
 
 ---
 
