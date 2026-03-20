@@ -7,6 +7,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
@@ -38,6 +39,38 @@ Key design goals:
 - **Compliance-first**: Built-in GDPR, HIPAA, PCI-DSS, and SOX scanning at ingestion time
 - **Enterprise-ready**: Multi-tenancy, SSO (OAuth2, SAML 2.0, LDAP/AD), RBAC, audit logging
 - **Self-hosted**: Every component can run on your own infrastructure — no data leaves your environment
+
+---
+
+## Screenshots
+
+### Login
+![Login](docs/screenshots/login.png)
+Clean sign-in screen supporting username or email. Links to forgot-password flow and, when enabled, OAuth (Google / Microsoft) and SAML SSO buttons appear automatically.
+
+### AI Chat
+![Chat](docs/screenshots/chat.png)
+The core RAG interface — ask any question in natural language and get a verified, source-cited answer drawn from your document library. Filter results by source connector or collection, export conversation history, and open multiple chat threads.
+
+### Documents
+![Documents](docs/screenshots/documents.png)
+Workspace document library showing every uploaded file with its type, size, visibility (Public / Team), processing status (Ready / Processing / Failed), chunk count, and upload date. Supports bulk actions, search by filename, and one-click upload.
+
+### Channels
+![Channels](docs/screenshots/channels.png)
+Team channels for real-time discussion (e.g. `#engineering`, `#hr-updates`, `#compliance-updates`). Each channel shows time-since-last-message at a glance. Create new channels and organise teams from the sidebar.
+
+### Direct Messages
+![DMs](docs/screenshots/dms.png)
+1-to-1 and group direct messaging with real-time presence indicators (online / away). A **Search Docs** shortcut inside any DM lets you pull relevant documents directly into the conversation.
+
+### Admin Panel
+![Admin](docs/screenshots/admin.png)
+Full-featured admin dashboard with at-a-glance stats (users, documents, collections, teams) and quick-access cards for: Compliance Config (HIPAA · PCI-DSS · GDPR · SOX), Analytics, Data Connectors, RAG Pipeline, Settings (LLM · SMTP · upload limits), Branding, Storage, Webhooks, Reports, Embed Widget, and Service Accounts. Inline user management table with role editing, status toggling, and invite flow.
+
+### Profile
+![Profile](docs/screenshots/profile.png)
+Per-user profile page with avatar, role badge, member-since date, online-status selector, change-password form, TOTP 2FA enrollment, active session management, and quick-links to recent AI chats and recently accessed documents.
 
 ---
 
@@ -85,13 +118,6 @@ Key design goals:
 - **RBAC**: Admin, analyst, and viewer roles with fine-grained per-resource permissions
 - **Multi-tenancy**: Complete company/team isolation with invite-only registration
 
-### Collaboration & Communication
-- **Live video huddles**: Self-hosted WebRTC via LiveKit (open-source, Apache 2.0)
-- **Meeting intelligence**: Automatic transcription (Whisper), agenda embedding, meeting notes extraction
-- **Calendar & events**: Recurring events, reminders, meeting notes storage
-- **Real-time notifications**: In-app notification system with multi-channel support
-- **User presence**: Real-time online status broadcasting via WebSocket
-
 ### Data Connectors
 Sync documents automatically from external sources:
 
@@ -123,7 +149,7 @@ Sync documents automatically from external sources:
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                      Frontend (Next.js 14)               │
-│   Chat · Documents · Huddle · Calendar · Admin          │
+│   Chat · Documents · Calendar · Admin                   │
 └────────────────────────┬────────────────────────────────┘
                          │ REST / WebSocket
 ┌────────────────────────▼────────────────────────────────┐
@@ -158,7 +184,6 @@ Sync documents automatically from external sources:
 | **Knowledge Graph** | Neo4j 5 + APOC, LlamaIndex PropertyGraphIndex |
 | **Task Queue** | Celery 5.3 + Redis 7 (or RabbitMQ 3) |
 | **Object Storage** | MinIO (self-hosted), AWS S3, Azure Blob, GCS |
-| **Video** | LiveKit 2.0 (self-hosted WebRTC) |
 | **Observability** | Prometheus, Grafana, OpenTelemetry (OTLP/gRPC) |
 | **Auth** | python-jose, passlib/bcrypt, PyOTP, xmlsec1 (SAML) |
 | **OCR** | Tesseract, pdf2image, PyMuPDF |
@@ -260,7 +285,6 @@ All endpoints are prefixed with `/api/v1/`. Key groups:
 | Connectors | `/connectors` | Configure and sync external sources |
 | Teams | `/teams` | Team and member management |
 | Calendar | `/calendar` | Events, recurring meetings |
-| Huddle | `/huddle` | LiveKit video room tokens |
 | Admin | `/admin` | Users, settings, audit, license |
 | Webhooks | `/webhooks` | Outbound event hooks |
 | Notifications | `/notifications` | In-app notification management |
@@ -484,7 +508,6 @@ All connectors are implemented but require live credential testing against real 
 - **Qdrant vector store** — Basic operations tested; distributed multi-node cluster setup not yet validated
 - **AWS Bedrock LLM** — Provider routing implemented; IAM role-based auth in EKS not yet tested end-to-end
 - **RabbitMQ broker** — Celery routing with RabbitMQ tested in isolation; failover behavior under load not validated
-- **LiveKit TURN server** — coturn and Twilio TURN configurations implemented; metered.ca fallback not tested in production
 - **Docling parser** — Advanced document structure preservation (complex tables, multi-column layouts) needs broader document corpus testing
 - **Fine-tuning pipeline** — Data collection framework is in place; actual training loop and model registration not yet fully implemented
 
