@@ -1,0 +1,306 @@
+# Web framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# Database
+sqlalchemy[asyncio]>=2.0.25
+aiosqlite>=0.19.0
+alembic>=1.13.0
+asyncpg>=0.29.0
+
+# Auth
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+bcrypt>=4.0.0,<4.1.0
+pyotp>=2.9.0
+
+# Settings
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Vector store
+chromadb>=0.4.22
+qdrant-client>=1.8.0
+pgvector>=0.3.0
+
+# Hybrid search
+rank-bm25>=0.2.2
+
+# Knowledge Graph
+neo4j>=5.0.0
+
+# Local cross-encoder re-ranking (CPU-only, no API key required)
+flashrank>=0.2.9
+
+# LLM / Embedding
+httpx>=0.26.0
+anthropic>=0.28.0
+openai>=1.12.0
+
+# Document parsing
+pymupdf>=1.23.0
+python-docx>=1.1.0
+openpyxl>=3.1.0
+pandas>=2.1.0
+python-multipart>=0.0.6
+python-pptx>=0.6.23
+lxml>=5.1.0
+beautifulsoup4>=4.12.0
+
+# Livekit — self-hosted video rooms (open source, Apache 2.0)
+livekit-api>=0.6.0
+aiohappyeyeballs==2.6.1
+aiohttp==3.13.3
+aiosignal==1.4.0
+aiosqlite==0.22.1
+alembic==1.18.4
+annotated-doc==0.0.4
+annotated-types==0.7.0
+anyio==4.12.1
+attrs==25.4.0
+bcrypt==4.0.1
+blinker==1.9.0
+build==1.4.0
+CacheControl==0.14.4
+certifi==2026.1.4
+cffi==2.0.0
+charset-normalizer==3.4.4
+chromadb==1.5.5
+claude-code==0.0.1
+cleo==2.1.0
+click==8.3.1
+coverage==7.13.4
+crashtest==0.4.1
+cryptography==46.0.5
+distlib==0.4.0
+dnspython==2.8.0
+dulwich==0.25.2
+durationpy==0.10
+ecdsa==0.19.1
+email-validator==2.3.0
+et_xmlfile==2.0.0
+fastapi==0.135.1
+fastjsonschema==2.21.2
+filelock==3.20.3
+findpython==0.7.1
+Flask==3.1.3
+flatbuffers==25.12.19
+frozenlist==1.8.0
+fsspec==2026.2.0
+googleapis-common-protos==1.73.0
+google-auth==2.38.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.166.0
+greenlet==3.3.2
+grpcio==1.78.0
+h11==0.16.0
+hf-xet==1.4.1
+httpcore==1.0.9
+httptools==0.7.1
+httpx==0.28.1
+huggingface_hub==1.6.0
+idna==3.11
+importlib_metadata==8.7.1
+importlib_resources==6.5.2
+iniconfig==2.3.0
+installer==0.7.0
+itsdangerous==2.2.0
+jaraco.classes==3.4.0
+jaraco.context==6.1.0
+jaraco.functools==4.4.0
+Jinja2==3.1.6
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+keyring==25.7.0
+kubernetes==35.0.0
+livekit-api==1.1.0
+livekit-protocol==1.1.2
+lxml==6.0.2
+Mako==1.3.10
+markdown-it-py==4.0.0
+MarkupSafe==3.0.3
+mdurl==0.1.2
+mmh3==5.2.1
+more-itertools==10.8.0
+mpmath==1.3.0
+msgpack==1.1.2
+multidict==6.7.1
+numpy==2.4.1
+oauthlib==3.3.1
+onnxruntime==1.24.3
+openpyxl==3.1.5
+opentelemetry-api==1.40.0
+opentelemetry-exporter-otlp-proto-common==1.40.0
+opentelemetry-exporter-otlp-proto-grpc==1.40.0
+opentelemetry-proto==1.40.0
+opentelemetry-sdk==1.40.0
+opentelemetry-semantic-conventions==0.61b0
+orjson==3.11.7
+overrides==7.7.0
+packaging==26.0
+pandas==3.0.0
+passlib==1.7.4
+pastel==0.2.1
+pbs-installer==2026.1.14
+pexpect==4.9.0
+pkginfo==1.12.1.2
+platformdirs==4.5.1
+pluggy==1.6.0
+poethepoet==0.40.0
+poetry==2.3.1
+poetry-core==2.3.0
+poetry-plugin-shell==1.0.1
+propcache==0.4.1
+protobuf==6.33.5
+ptyprocess==0.7.0
+pyasn1==0.6.2
+pybase64==1.4.3
+pycparser==3.0
+pydantic==2.12.5
+pydantic-settings==2.13.1
+pydantic_core==2.41.5
+Pygments==2.19.2
+PyJWT==2.12.0
+PyMuPDF==1.27.1
+PyPika==0.51.1
+pyproject_hooks==1.2.0
+pytest==9.0.2
+pytest-asyncio==1.3.0
+pytest-cov==7.0.0
+python-dateutil==2.9.0.post0
+python-docx==1.2.0
+python-dotenv==1.2.2
+python-jose==3.5.0
+python-magic==0.4.27
+python-multipart==0.0.22
+PyYAML==6.0.3
+RapidFuzz==3.14.3
+referencing==0.37.0
+requests==2.32.5
+requests-oauthlib==2.0.0
+requests-toolbelt==1.0.0
+rich==14.3.3
+rpds-py==0.30.0
+rsa==4.9.1
+shellingham==1.5.4
+six==1.17.0
+SQLAlchemy==2.0.48
+starlette==0.52.1
+sympy==1.14.0
+tenacity==9.1.4
+tokenizers==0.22.2
+tomlkit==0.14.0
+tqdm==4.67.3
+trove-classifiers==2026.1.14.14
+typer==0.24.1
+types-protobuf==6.32.1.20260221
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+urllib3==2.6.3
+uv==0.10.9
+uvicorn==0.41.0
+uvloop==0.22.1
+virtualenv==20.36.1
+watchfiles==1.1.1
+websocket-client==1.9.0
+websockets==16.0
+Werkzeug==3.1.6
+xattr==1.3.0
+yarl==1.23.0
+zipp==3.23.0
+zstandard==0.25.0
+pydantic[email]
+
+# OCR support for scanned PDFs
+pytesseract>=0.3.10
+Pillow>=10.0.0
+pdf2image>=1.17.0
+
+# Feature: Celery background job queue with Redis broker
+celery[redis]>=5.3.0
+redis>=5.0.0
+
+# Feature: Per-endpoint rate limiting (decorator-based)
+slowapi>=0.1.9
+
+# Feature: Structured JSON logging
+python-json-logger>=2.0.7
+
+# Feature: Prometheus metrics endpoint
+prometheus-fastapi-instrumentator>=6.1.0
+
+# Feature: iCal calendar export/import + recurring event date generation
+icalendar>=5.0.12
+python-dateutil>=2.9.0
+
+# Feature: Post-huddle meeting intelligence (transcription)
+# openai-whisper is OPTIONAL — it has complex GPU/ffmpeg dependencies.
+# To use local Whisper (CPU): pip install openai-whisper
+# If not installed, TranscriptionService falls back to the OpenAI Whisper API (needs OPENAI_API_KEY).
+# The openai package already listed above covers the API fallback path.
+
+# Feature: External document connectors
+trafilatura>=1.12.0
+atlassian-python-api>=3.41.0
+
+# Connector: AWS S3
+boto3>=1.34.0
+
+# Connector: Azure Blob Storage / Data Lake
+azure-storage-blob>=12.19.0
+
+# Connector: Google Cloud Storage
+google-cloud-storage>=2.14.0
+
+# Connector: SharePoint (uses httpx already present above)
+
+# Feature: MCP (Model Context Protocol) server — expose Nexus as an AI agent tool
+mcp>=1.0.0
+
+# Feature: Docling — table-aware PDF/DOCX/PPTX parsing (IBM, Apache 2.0)
+# Provides far better structure preservation than pymupdf/python-docx for complex documents.
+# Install: pip install docling
+# macOS prerequisite: brew install libmagic
+# When installed, DoclingParser is auto-registered and replaces the default PDF/DOCX/PPTX parsers.
+# OPTIONAL — system works without it, falls back to standard parsers.
+# docling>=2.0.0
+
+# Feature: OAuth2 SSO (Google + Microsoft) — state CSRF token signing
+# httpx is already present above; itsdangerous is already present above
+
+# Feature: SAML 2.0 SSO
+# Requires system library: brew install libxmlsec1  (macOS) / apt-get install xmlsec1 libxmlsec1-dev (Debian)
+python3-saml>=1.15.0
+
+# Feature: LlamaIndex semantic ingestion pipeline (Section 13.4 of RAG plan)
+# SemanticSplitterNodeParser + KeywordExtractor replace the manual RecursiveChunker.
+# Set LLAMAINDEX_PIPELINE_ENABLED=true in .env to activate.
+llama-index>=0.10.0
+llama-index-embeddings-ollama>=0.1.0
+
+# Feature: LlamaIndex PropertyGraphIndex → Neo4j (Section 13.3 of RAG plan)
+# Replaces manual EntityExtractor with LlamaIndex's built-in property graph construction.
+# Set LLAMAINDEX_GRAPH_ENABLED=true in .env to activate.
+llama-index-graph-stores-neo4j>=0.1.0
+
+# Feature: Qdrant native sparse BM25 vectors (Section 15 of RAG plan)
+# Enables Qdrant sparse vector search (Lane 2) as a replacement for in-memory rank_bm25.
+# Set QDRANT_SPARSE_ENABLED=true in .env and VECTOR_STORE_TYPE=qdrant.
+# Install: pip install fastembed
+# fastembed>=0.2.0
+
+# Feature: Google Gemini LLM provider
+# pip install google-generativeai
+# google-generativeai>=0.8.0
+
+# Feature: MinIO object storage
+# pip install minio
+# minio>=7.2.0
+
+# Feature: AWS Bedrock — boto3 already listed above (Connector: AWS S3)
+
+# Feature: OpenTelemetry instrumentation (SDK already listed above)
+# Optional auto-instrumentation packages:
+# opentelemetry-instrumentation-fastapi>=0.45b0
+# opentelemetry-instrumentation-sqlalchemy>=0.45b0
+# opentelemetry-instrumentation-redis>=0.45b0
